@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  postgresql:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ExchangeRates_DB  # Nombre de la base de datos
+      POSTGRES_USER: CALB             # Usuario de la base de datos
+      POSTGRES_PASSWORD: CALB1995     # Contraseña del usuario
+    ports:
+      - "5432:5432"  # Mapeo del puerto del contenedor al host
+    volumes:
+      - db_data:/var/lib/postgresql/data  # Volumen para persistir los datos de PostgreSQL
+
+volumes:
+  db_data:  # Definición del volumen persistente para almacenar datos de PostgreSQL
